@@ -1,0 +1,71 @@
+html,body{
+	overflow: hidden;
+	color: #777;
+	background-color: #24292e;
+}
+#colock-container{
+	width: 80px;
+	height: 80px;
+	margin: 0 auto; /*水平居中*/
+	position: relative; /*脱离文档流*/
+	top: 50%; /*偏移*/
+}
+.colock-active{
+	color: #FFF !important;
+}
+.colock-main{
+	width: 80px;
+	font-size: 25px;
+	position: relative; /*脱离文档流*/
+	transition: all .1s .5s linear;
+	top: -20px;
+	left: -40px;
+	text-align: center;
+	color: #FF0000;
+}
+
+.colock-month-item{
+	position: absolute;
+	transform-origin: 0 0;
+	transition: all .1s .5s linear;
+	top: 0px;
+	padding-left: 50px;
+	width: 60px;
+	color: #FF8C00;
+}
+.colock-day-item{
+	position: absolute;
+	transform-origin: 0 0;
+	transition: all .1s .5s linear;
+	top: 0px;
+	padding-left: 110px;
+	width: 60px;
+	color: #FFD700;
+}
+.colock-hour-item{
+	position: absolute;
+	transform-origin: 0 0;
+	transition: all .1s .5s linear;
+	top: 0px;
+	padding-left: 160px;
+	width: 60px;
+	color: #32CD32;
+}
+.colock-minute-item{
+	position: absolute;
+	transform-origin: 0 0;
+	transition: all .1s .5s linear;
+	top: 0px;
+	padding-left: 210px;
+	width: 60px;
+	color: #1E90FF;
+}
+.colock-second-item{
+	position: absolute;
+	transform-origin: 0 0;
+	transition: all .1s .5s linear;
+	top: 0px;
+	padding-left: 260px;
+	width: 60px;
+	color: #8A2BE2;
+}
