@@ -1,7 +1,15 @@
 html,body{
 	overflow: hidden;
 	color: #777;
+	padding: 0;
+	margin: 0;
+}
+.main-container{
+	height: 100%;
+	width: 100%;
 	background-color: #24292e;
+	z-index: -9;
+	position: fixed;
 }
 #colock-container{
 	width: 80px;
