@@ -1,5 +1,88 @@
 $(document).ready(function(){
 	//
+	var workRestAry = [];
+    workRestAry.push({text: '起床洗漱', start:'8:00', end:''});
+    workRestAry.push({text: '早餐时间', start:'8:30', end:'9:00'});
+    workRestAry.push({text: '练琴', start:'9:30', end:'10:30'});
+    workRestAry.push({text: '背诗', start:'10:30', end:'11:00'});
+    workRestAry.push({text: '自由玩耍', start:'11:00', end:'12:00'});
+    workRestAry.push({text: '午餐 + 电视', start:'12:00', end:'13:00'});
+    workRestAry.push({text: '午休时间', start:'13:30', end:'15:00'});
+    workRestAry.push({text: '幼儿园作业', start:'15:00', end:'16:00'});
+    workRestAry.push({text: '描红', start:'16:00', end:'17:00'});
+    workRestAry.push({text: '晚餐 + 电视', start:'17:30', end:'19:00'});
+    workRestAry.push({text: '学英语', start:'19:30', end:'20:30'});
+    workRestAry.push({text: '亲子运动', start:'20:30', end:'21:00'});
+    workRestAry.push({text: '洗漱 + 故事', start:'21:00', end:''});
+    workRestAry.push({text: '前关灯睡觉', start:'22:00', end:''});
+    //
+	var workAndRest = $("#work-and-rest");
+	function getCurClass(curDate, workRestIdx){
+	    var rst = '';
+	    var workRest = workRestAry[workRestIdx];
+        //
+        var start = workRest.start;
+        var end = workRest.end;
+        var startDate = new Date();
+        var startAry = start.split(':');
+        startDate.setHours(startAry[0]);
+        startDate.setMinutes(startAry[1]);
+        startDate.setSeconds('0');
+        var endDate = null;
+        if(end && end != ''){
+        } else {
+	        var nextWorkRest = null;
+	        var nextIdx = workRestIdx + 1;
+	        if(nextIdx < workRestAry.length){
+                nextWorkRest = workRestAry[nextIdx];
+                if(nextWorkRest){
+                    end = nextWorkRest.start;
+                }
+	        }
+        }
+        if(end && end != ''){
+            endDate = new Date();
+            var endAry = end.split(':');
+            endDate.setHours(endAry[0]);
+            endDate.setMinutes(endAry[1]);
+            endDate.setSeconds('0');
+        }
+        // finish  active
+        if(endDate == null && curDate > startDate){
+            rst = 'active';
+        } else if(curDate > startDate && curDate > endDate){
+            rst = 'finish';
+        } else if(endDate > curDate && curDate > startDate){
+            rst = 'active';
+        }
+	    return rst;
+	}
+	function setWorkAndRest(){
+	    workAndRest.html('');//情况
+	    var curDate = new Date();
+	    for(var i=0; i<workRestAry.length; i++){
+            var workRest = workRestAry[i];
+            if(workRest.text && workRest.start && workRest.text != '' && workRest.start != ''){
+                var curClass = getCurClass(curDate, i);
+                var tmpHtml = '<div';
+                if(curClass && curClass != ''){
+                    tmpHtml += ' class="'+ curClass +'"';
+                }
+                tmpHtml += '>'+workRest.start;
+                if(workRest.end && workRest.end != ''){
+                    tmpHtml += ' - '+ workRest.end;
+                }
+                tmpHtml += ' '+ workRest.text +'</div>';
+                workAndRest.append($(tmpHtml));
+            }
+        }
+		//
+		window.setTimeout(function(){
+			setWorkAndRest();
+		}, 60000);
+	}
+	setWorkAndRest();
+	//
 	var colockContainer = $("#colock-container");
 	var monthDay = [31,28,31,30,31,30,31,31,30,31,30,31];
 	var colorIdx = 0;

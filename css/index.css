@@ -11,6 +11,18 @@ html,body{
 	z-index: -9;
 	position: fixed;
 }
+#work-and-rest{
+    position: absolute;
+    color: #777;
+    font-size: 20px;
+    padding: 20px;
+}
+#work-and-rest .finish{
+	color: #32CD32 !important;
+}
+#work-and-rest .active{
+	color: #FF0000 !important;
+}
 #colock-container{
 	width: 80px;
 	height: 80px;
