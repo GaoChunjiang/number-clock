@@ -1,0 +1,57 @@
+/**/_mine/
+
+# other project merge cfg
+/**/.apt_generated/
+/**/rebel.xml
+/**/.bower.json
+/**/.keep
+/**/.nojekyll
+*.svg
+
+# -- workflow-center -- begin --
+# /dist
+# /node_modules
+# /displaymodel_temp.html
+# node_modules
+# .DS_Store
+# -- workflow-center -- end --
+
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.class
+*.project
+*.factorypath
+
+# eclipse ignore
+.settings/
+.classpath
+target/
+bin/
+NewCustServSer/
+SrenewSer/
+sms-drugstore/
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+# else
+.springBeans
