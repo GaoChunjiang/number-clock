@@ -13,8 +13,42 @@
 				<div class="colock-main">2020</div>
 			</div>
 		</div>
-		
+
+
 		<script type="text/javascript" src="js/c_n4.js"></script>
 		<canvas id="c_n4" width="1366" height="661" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+
+
+		<script type="text/javascript" src="js/live2d-base.js"></script>
+		<script type="text/javascript" src="js/live2d-widget.js"></script>
+		<script type="text/javascript">
+			// jsonPath: "./json/tororo.model.json",
+			// jsonPath: "https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json",
+			L2Dwidget.init({
+				"model": {
+					jsonPath: "https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json",
+					"scale": 1
+				},
+				"display": {
+					"position": "left",
+					"width": 150,
+					"height": 300,
+					"hOffset": 0,
+					"vOffset": 20
+				},
+				"mobile": {
+					"show": true,
+					"scale": 0.5
+				},
+				"react": {
+					"opacityDefault": 0.7,
+					"opacityOnHover": 0.2
+				}
+			});
+		</script>
+		<div id="live2d-widget">
+			<canvas id="live2dcanvas" width="300" height="600" style="position: fixed; opacity: 0.7; left: 0px; bottom: 20px; z-index: 99999; pointer-events: none;"></canvas>
+		</div>
+
 	</body>
 </html>
